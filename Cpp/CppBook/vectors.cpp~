@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main(){
+  
+  // Declare variables
+  std::vector<int> data;
+  std::string uinput;
+  int x(0);
+  bool exit = true;
+  
+
+  // Read integers from manual input
+  do{
+    std::cout << " Enter a number (x to exit): ";
+    std::cin >> uinput;
+    if(uinput != "x"){
+      x = atoi(uinput.c_str());
+      data.push_back(x);
+    }
+    else exit = false;
+  } while(exit==true);
+
+  // Sort the elements in the vector
+  std::sort(data.begin(), data.end());
+
+  // Print out the elements in the vector
+  for(std::vector<int>::size_type i(0); i<data.size(); i++){
+    std::cout << " " << data.at(i+1) << std::endl;
+  }
+
+  return 0;
+}
