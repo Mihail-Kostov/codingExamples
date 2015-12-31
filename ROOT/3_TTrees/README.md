@@ -19,9 +19,9 @@ Declaring histograms go in SETUP, in the LOOP you fill the histograms and after 
 
 To run Analyze you must run the following commands:
 
-   root
-   .L Analyze.C
-   Analyze t
-   t.Loop()
+		root
+		.L Analyze.C
+		Analyze t
+		t.Loop()
    
 You can find the type and name of the variables in the TTree by looking at Analyze.h.
