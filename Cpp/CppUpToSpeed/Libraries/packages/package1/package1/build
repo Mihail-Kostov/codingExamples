@@ -1,0 +1,20 @@
+#! /bin/bash
+#
+# Compile the files in this package and insert them into a library.
+#
+
+# Name of the library to be made
+libname="../lib/libpackage1.a"
+
+# Ensure that the path to the library exists.
+if [ ! -e "../lib" ]; then
+  mkdir -p "../lib"
+fi
+
+# Compile .cc files in this package
+c++ -Wall -Wextra -pedantic -Werror -std=c++11 -c function.cc
+
+# Put the .o files into the library;
+#  - create library if needed;
+#  - if library already contains function.o, replace it.
+ar rc ${libname} function.o

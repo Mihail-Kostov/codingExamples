@@ -1,0 +1,65 @@
+i = 4
+i = 5
+j = 3
+k = 1
+m = 6
+a = 1.234
+b = 5.678
+c = 1
+n = 5
+n2 = 6
+l[0] = 0
+l[1] = 10
+l[2] = 20
+l[3] = 30
+l[4] = 40
+Yes, i is 5
+a is between 1 and 2.
+status is: 1
+s = this is a string
+Number of elments in vs: 5
+Capacity of vs:          8
+sizeBetterL: 5
+pa  = 0x7fff5c2174e8
+*pa = 1.234
+a =   5.678
+*pa = 5.678
+pa  = 0x7fff5c2174e8
+*pl++ = 0
+*pl++ = 10
+*pl++ = 20
+*pl++ = 30
+*pl++ = 40
+The size of animal is: 3
+The size of animal is: 3
+The size of animal is: 3
+ra  = 5.678
+&a  = 0x7fff5c2174e8
+&ra = 0x7fff5c2174e8
+a   = -1.234
+ra  = -1.234
+element 0 of vs is zero
+element 1 of vs is one
+element 2 of vs is two
+element 3 of vs is three
+element 4 of vs is four
+V2: zero
+V2: one
+V2: two
+V2: three
+V2: four
+V3: zero
+V3: one
+V3: two
+V3: three
+V3: four
+V4: zero
+V4: one
+V4: two
+V4: three
+V4: four
+V5: zero
+V5: one
+V5: two
+V5: three
+V5: four

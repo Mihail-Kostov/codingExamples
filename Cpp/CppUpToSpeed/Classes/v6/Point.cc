@@ -1,0 +1,41 @@
+#include "Point.h"
+
+#include <cmath>
+
+Point::Point(): x_(0.), y_(0.) {}
+
+Point::Point(double ax, double ay):
+  x_(ax),
+  y_(ay) {
+}
+
+double Point::x() const {
+  return x_;
+}
+
+double Point::y() const {
+  return y_;
+}
+
+void Point::set(double ax, double ay) {
+  x_ = ax;
+  y_ = ay;
+}
+
+void Point::set(Point const& p) {
+  x_ = p.x_;
+  y_ = p.y_;
+}
+
+double Point::mag() const {
+  return std::sqrt(x_ * x_ + y_ * y_);
+}
+
+double Point::phi() const {
+  return std::atan2(y_, x_);
+}
+
+void Point::scale(double f) {
+  x_ *= f;
+  y_ *= f;
+}

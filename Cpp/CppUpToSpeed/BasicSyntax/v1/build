@@ -1,0 +1,4 @@
+#! /bin/bash
+
+# Compile and link the main program t1.cc to make an executable file named t1
+c++  -Wall -Wextra -pedantic -std=c++11 -o t1 t1.cc
