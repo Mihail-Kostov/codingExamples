@@ -11,7 +11,7 @@ float get_standeverr(float sigma, float ndata);
 
 
 int main(){
-  float *data, temp;
+  float *data;
   int ndata(0);
   std::string filename = "millikan.dat";
   ndata = determine_nline(filename);
@@ -38,14 +38,14 @@ int main(){
 int determine_nline(std::string filename){
   int n(0);
   float temp;
-  
+
   std::fstream myfile;
   myfile.open(filename.c_str());
   if(myfile.good()){
     while(myfile >> temp){
       n++;
     } // Read line from file
-  } // Check if file opened successfully 
+  } // Check if file opened successfully
   else{ // Report error if file is not successfully open
     std::cerr << "ERROR: File could not be opened." << std::endl;
     return 1;
@@ -68,7 +68,7 @@ int read_data(std::string filename, float *data, int ndata){
       *(data+n) = temp;
       n++;
     } // Read line from file
-  } // Check if file opened successfully 
+  } // Check if file opened successfully
   else{ // Report error if file is not successfully open
     std::cerr << "ERROR: File could not be opened." << std::endl;
     return 1;
