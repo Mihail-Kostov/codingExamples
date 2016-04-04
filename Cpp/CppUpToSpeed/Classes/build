@@ -1,7 +1,0 @@
-#! /bin/bash
-
-if [ -e "Point.cc" ]; then
-  c++ -Wall -Wextra -pedantic -Werror -std=c++11 -o ptest ptest.cc Point.cc
-else
-  c++ -Wall -Wextra -pedantic -Werror -std=c++11 -o ptest ptest.cc
-fi
