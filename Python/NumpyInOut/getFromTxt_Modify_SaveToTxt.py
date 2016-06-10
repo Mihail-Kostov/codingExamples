@@ -15,5 +15,4 @@ for i in range(len(npDataIn)):
     data.append([x,y,z])
 
 # OUTPUT
-npDataOut = np.array((data))
-np.savetxt("dataOut.dat",npDataOut,fmt=['%s','%s','%s'],delimiter=' ',header='Col1 Col2 Col3')
+np.savetxt("dataOut.dat",np.array((data)),fmt=['%s','%s','%s'],delimiter=' ',header='Col1 Col2 Col3')
