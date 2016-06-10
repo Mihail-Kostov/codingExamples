@@ -4,9 +4,7 @@ import numpy as np
 npDataIn = np.genfromtxt("dataIn.dat",delimiter=" ",names=True,dtype=None)
 
 # MODIFICATION
-# This intermediate step (x,y,z) is unnecessary -
-# - but it makes it easier in case you would want only -
-# - the input or the output part
+# This intermediate step (x,y,z) is unnecessary but it makes it easier in case you would want only the input or the output part
 data = []
 for i in range(len(npDataIn)):
     x = npDataIn['Col1'][i] + npDataIn['Col1'][i]
