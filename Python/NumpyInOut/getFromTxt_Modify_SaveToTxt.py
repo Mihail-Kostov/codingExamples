@@ -13,4 +13,5 @@ for i in range(len(dataIn)):
     dataOut.append([x,y,z])
 
 # OUTPUT
-np.savetxt("dataOut.dat",np.array((dataOut)),fmt=['%s','%s','%s'],delimiter=' ',header='Col1 Col2 Col3')
+np.savetxt("dataOut.dat",np.array((dataOut)),delimiter=' ',header='Col1 Col2 Col3')
+# np.savetxt("dataOut.dat",np.array((dataOut)),fmt=['%s','%s','%s'],delimiter=' ',header='Col1 Col2 Col3')
