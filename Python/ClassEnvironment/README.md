@@ -1,3 +1,3 @@
 # Class environment
 
-Sample Python class environment
+Sample Python/Ruby class environment
