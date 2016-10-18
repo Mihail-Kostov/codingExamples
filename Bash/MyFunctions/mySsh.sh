@@ -3,8 +3,8 @@
 # Connect to different ssh addresses
 
 case ${1} in
-  "uboone")       	echo "> ssh -X -Y sporzio@uboonegpvm01.fnal.gov"
-                  	ssh -X -Y sporzio@uboonegpvm01.fnal.gov ;;
+  "uboone")       	echo "> ssh -X -Y sporzio@uboonegpvm0${2}.fnal.gov"
+                  	ssh -X -Y sporzio@uboonegpvm0${2}.fnal.gov ;;
   "manchester")   	echo "> ssh -X -Y davide@higgs.hep.manchester.ac.uk"
                   	ssh -X -Y davide@higgs.hep.manchester.ac.uk ;;
   "database")     	echo "> ssh -X -Y uboonedb@ppdhcp120.hep.manchester.ac.uk"
