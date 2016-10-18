@@ -1,38 +1,40 @@
-import numpy as np
+import os
 import datetime
+import numpy as np
 from subprocess import call
 
 # Useful functions
-def Screamer(string):
-    scream = 'echo "\033[1;33m-> %s\033[0m"' %(string)
-    return scream
-
-def Saver(string):
-    now = datetime.datetime.now()
-    log = 'echo "%s: %s" >> cLog.log' %(now, string)
-    return log
-
 def Notifier(string,curr,tot):
-    notification = 'echo "Job \'%s\' has finished." | mutt -s "Job %i of %i finished" salvatore.porzio@postgrad.manchester.ac.uk' %(string,curr,tot)
-    return notification
+    string += '; echo "Job \'%s\' has finished." | mutt -s "Job %i of %i finished" salvatore.porzio@postgrad.manchester.ac.uk' %(string,curr,tot)
+    return string
 
-def Run(string,curr,tot):
-    log = ' 2>&1 | tee -a rLog.log'
-    call(Screamer(string), shell=True)
-    call(Saver(string), shell=True)
-    call(string + log, shell=True)
-    call(Notifier(string,curr,tot), shell=True)
+def Temp2Perm(temp,perm,name,start,end):
+    temp.seek(0)
+    perm.write('%s\n%s -> %s\n' %(name,start,end))
+    perm.write(temp.read())
+    perm.write('\n')
+    temp.close()
 
-
+# Settings
+njobs = 3
+logIn = open('logIn.log', 'w')
+logOut = open('logOut.log', 'w')
+logErr = open('logErr.log', 'w')
 
 # Execution
-njobs = 3
-
-call('rm rLog.log; rm cLog.log', shell=True)
-call('touch rLog.log; touch cLog.log', shell=True)
 for i in range(njobs):
     string = ''
     string += 'echo'
     string += ' "Hello World!"'
 
-    Run(string,i,njobs)
+    inl = os.tmpfile()
+    outl = os.tmpfile()
+    errl = os.tmpfile()
+    print '\033[1;33m-> %s\033[0m' %(string)
+    start = datetime.datetime.now()
+    proc = call(Notifier(string,i+1,njobs),shell=True,stdin=inl,stdout=outl,stderr=errl)
+    end = datetime.datetime.now()
+    print 'Process %i of %i completed. Time: %s' %(i+1,njobs,end-start)
+    Temp2Perm(inl,logIn,string,start,end)
+    Temp2Perm(outl,logOut,string,start,end)
+    Temp2Perm(errl,logErr,string,start,end)
