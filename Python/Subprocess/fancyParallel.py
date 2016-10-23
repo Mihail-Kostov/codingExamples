@@ -1,7 +1,7 @@
 import os
 import datetime
 import numpy as np
-from subprocess import Popen
+from subprocess import call
 
 # Useful functions
 def Notifier(string,curr,tot):
@@ -22,7 +22,6 @@ logOut = open('logOut.log', 'w')
 logErr = open('logErr.log', 'w')
 
 # Execution
-processes = []
 for i in range(njobs):
     string = ''
     string += 'echo'
@@ -31,13 +30,11 @@ for i in range(njobs):
     inl = os.tmpfile()
     outl = os.tmpfile()
     errl = os.tmpfile()
+    print '\033[1;33m-> %s\033[0m' %(string)
     start = datetime.datetime.now()
-    proc = Popen(Notifier(string,i+1,njobs),shell=True,stdin=inl,stdout=outl,stderr=errl)
-    processes.append((start,string,proc,inl,outl,errl))
-
-for start, name, proc, inl, outl, errl in processes:
-    proc.wait()
+    proc = call(Notifier(string,i+1,njobs),shell=True,stdin=inl,stdout=outl,stderr=errl)
     end = datetime.datetime.now()
-    Temp2Perm(inl,logIn,name,start,end)
-    Temp2Perm(outl,logOut,name,start,end)
-    Temp2Perm(errl,logErr,name,start,end)
+    print 'Process %i of %i completed. Time: %s' %(i+1,njobs,end-start)
+    Temp2Perm(inl,logIn,string,start,end)
+    Temp2Perm(outl,logOut,string,start,end)
+    Temp2Perm(errl,logErr,string,start,end)
