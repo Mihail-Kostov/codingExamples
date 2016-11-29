@@ -1,0 +1,13 @@
+IF
+	Global("OHH_hexxatromancecheck","LOCALS",0)
+	Global("CDRomanceFoo","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetInterrupt(FALSE)
+		RealSetGlobalTimer("HexxatLovetalksTimer","GLOBAL",5400)
+		SetGlobal("HexxatRomanceActive","GLOBAL",1)
+		SetGlobal("HexxatLovetalks","GLOBAL",1)
+		SetGlobal("OHH_hexxatromancecheck","LOCALS",1)
+		SetInterrupt(TRUE)
+		Continue()
+END

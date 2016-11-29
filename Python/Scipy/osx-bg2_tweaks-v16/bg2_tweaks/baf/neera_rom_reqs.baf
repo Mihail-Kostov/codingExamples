@@ -1,0 +1,12 @@
+IF
+	InParty(Myself)
+	!Global("NEERA_ROMANCE","GLOBAL",4)
+	Global("NeeraRomanceActive","GLOBAL",0)
+	Global("CDRomanceFoo","LOCALS",0)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("NeeraLovetalksTimer","GLOBAL",5400)
+		SetGlobal("NeeraRomanceActive","GLOBAL",1)
+		SetGlobal("NeeraLovetalks","GLOBAL",1)
+		Continue()
+END

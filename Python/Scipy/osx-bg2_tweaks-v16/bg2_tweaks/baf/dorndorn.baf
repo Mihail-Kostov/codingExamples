@@ -1,0 +1,9 @@
+IF
+  GlobalGT("DORN_ROMANCE_FIGHT","GLOBAL",0)
+  !Global("DORN_ROMANCE_FIGHT","GLOBAL",99)
+THEN
+  RESPONSE #100
+    MakeUnselectable(0)
+    SetGlobal("DORN_ROMANCE_FIGHT","GLOBAL",99)
+    StartDialogueNoSet(Player1)
+END

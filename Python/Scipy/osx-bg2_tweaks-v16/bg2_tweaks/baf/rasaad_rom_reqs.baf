@@ -1,0 +1,12 @@
+IF
+	InParty(Myself)
+	!Global("RASAAD_ROMANCE","GLOBAL",4)
+	Global("RasaadRomanceActive","GLOBAL",0)
+	Global("CDRomanceFoo","LOCALS",0)
+THEN
+	RESPONSE #100
+		RealSetGlobalTimer("RasaadLovetalksTimer","GLOBAL",5400)
+		SetGlobal("RasaadRomanceActive","GLOBAL",1)
+		SetGlobal("RasaadLovetalks","GLOBAL",1)
+		Continue()
+END

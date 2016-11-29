@@ -1,0 +1,11 @@
+DEFINE_PATCH_MACRO ~weight_descripts~ BEGIN
+
+  SPRINT weight_temp @212001 // use existing weight string from arcane magic in heavy armor, but...
+  PATCH_PRINT ~var is %weight_temp%~
+  INNER_PATCH_SAVE ~%weight_temp%~ ~%weight%~ BEGIN
+    REPLACE_TEXTUALLY ~\[ \%TAB\%\]\*\[0-9\]\+~ ~~ // we'll remove actual numerical weight from match
+  END
+  PATCH_PRINT ~var is %weight%~
+  REPLACE_TEXTUALLY ~%weight%[ %TAB%]*[0-9]+~  ~\1 0~
+
+END

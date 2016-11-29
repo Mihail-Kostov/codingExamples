@@ -1,0 +1,19 @@
+IF
+	InParty(Myself)
+	GlobalLT("HexxatLovetalks","GLOBAL",17)
+	!Global("HexxatRomanceActive","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("HexxatRomanceActive","GLOBAL",1)
+		Continue()
+END
+
+IF
+	InParty(Myself)
+	GlobalGT("HexxatLovetalks","GLOBAL",16)
+	!Global("HexxatRomanceActive","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("HexxatRomanceActive","GLOBAL",2)
+		Continue()
+END

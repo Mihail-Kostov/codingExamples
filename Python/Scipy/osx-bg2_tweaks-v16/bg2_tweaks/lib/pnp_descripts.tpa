@@ -1,0 +1,6 @@
+DEFINE_PATCH_MACRO ~pnp_descripts~ BEGIN
+
+  SPRINT bonus_ac @215002
+  REPLACE_TEXTUALLY ~%bonus_ac%~ ~~
+
+END

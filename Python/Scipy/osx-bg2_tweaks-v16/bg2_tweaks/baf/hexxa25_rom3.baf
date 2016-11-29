@@ -1,0 +1,8 @@
+IF
+	InParty(Myself)
+	!Global("HexxatRomanceActive","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("HexxatRomanceActive","GLOBAL",2)
+END
+

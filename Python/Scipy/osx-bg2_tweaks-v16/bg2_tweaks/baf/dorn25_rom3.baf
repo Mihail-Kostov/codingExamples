@@ -1,0 +1,8 @@
+IF
+	InParty(Myself)
+	!Global("DornRomanceActive","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("DornRomanceActive","GLOBAL",2)
+END
+

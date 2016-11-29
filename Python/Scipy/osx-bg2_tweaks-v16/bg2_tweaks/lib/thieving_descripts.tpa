@@ -1,0 +1,47 @@
+DEFINE_PATCH_MACRO ~thieving_descripts~ BEGIN
+  SPRINT text_weight @210001
+
+  PATCH_IF ("%penalty_lock%" != 255) BEGIN
+    SPRINT text_lock @210002
+    SPRINT text_lock_penalty @210003
+    REPLACE_TEXTUALLY ~%text_lock%~ ~~
+    REPLACE_TEXTUALLY ~%text_weight%~
+    ~\1
+%text_lock_penalty% -%penalty_lock%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_trap%" != 255) BEGIN
+    SPRINT text_trap @210004
+    SPRINT text_trap_penalty @210005
+    REPLACE_TEXTUALLY ~%text_trap%~ ~~
+    REPLACE_TEXTUALLY ~%text_weight%~
+    ~\1
+%text_trap_penalty% -%penalty_trap%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_pickpocket%" != 255) BEGIN
+    SPRINT text_pickpocket @210006
+    SPRINT text_pickpocket_penalty @210007
+    REPLACE_TEXTUALLY ~%text_pickpocket%~ ~~
+    REPLACE_TEXTUALLY ~%text_weight%~
+    ~\1
+%text_pickpocket_penalty% -%penalty_pickpocket%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_hide%" != 255) BEGIN
+    SPRINT text_hide @210008
+    SPRINT text_hide_penalty @210009
+    REPLACE_TEXTUALLY ~%text_hide%~ ~~
+    REPLACE_TEXTUALLY ~%text_weight%~
+    ~\1
+%text_hide_penalty% -%penalty_hide%CDPERCENTAGE~
+  END
+  PATCH_IF ("%penalty_silent%" != 255) BEGIN
+    SPRINT text_silent @210010
+    SPRINT text_silent_penalty @210011
+    REPLACE_TEXTUALLY ~%text_silent%~ ~~
+    REPLACE_TEXTUALLY ~%text_weight%~
+    ~\1
+%text_silent_penalty% -%penalty_silent%CDPERCENTAGE~
+  END
+  
+  REPLACE_TEXTUALLY ~CDPERCENTAGE~ ~%~
+
+END

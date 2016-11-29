@@ -1,0 +1,7 @@
+DEFINE_PATCH_MACRO ~2h_descripts~ BEGIN
+
+  SPRINT match_1h @202003
+  SPRINT text_2h  @202004
+  REPLACE_TEXTUALLY ~%match_1h%~ ~%text_2h%~
+
+END

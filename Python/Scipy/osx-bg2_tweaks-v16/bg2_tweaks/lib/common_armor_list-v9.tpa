@@ -1,0 +1,633 @@
+/*
+190 - Buckler
+191 - Small Shield
+192 - Medium Shield
+193 - Large Shield
+194 - Tower Shield
+200 - Leather
+
+  200 and below are ignored by thieving tweaks
+
+201 - Chainmail
+202 - special studded leather, don't mess with stealth
+203 - Full Plate
+204 - Hide Armor
+205 - Plate Mail
+206 - Scale Mail
+207 - Splint Mail
+208 - Studded Leather
+209 - padded
+
+  300 and above are ignored by arcane tweaks
+
+300 - Elven Chainmail
+301 - special chain that allows casting (but is not elven), don't mess with stealth
+302 - special studded leather that allows casting
+303 - special chain that allows casting (but is not elven)
+304 - special plate that allows casting
+*/
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_armor BEGIN
+
+  // bucklers
+  ~_shld08~  => 190
+  ~_shld09~  => 190
+  ~_shld10~  => 190
+  ~_shld20~  => 190
+  ~a!brsb~   => 190
+  ~buck01~   => 190
+  ~buck02~   => 190
+  ~buck03~   => 190
+  ~buck04~   => 190
+  ~buck05~   => 190
+  ~buck06~   => 190
+  ~c2shld01~ => 190
+  ~deitm121~ => 190
+  ~drowshd1~ => 190 // drow adamantite buckler +1 (drow buckler)
+  ~drowshd2~ => 190 // drow adamantite buckler +2 (drow buckler)
+  ~drowshd3~ => 190 // drow adamantite buckler +3 (drow buckler)
+  ~dsshld01~ => 190
+  ~m#buck2~  => 190 // buckler +2, thorard's saucer (buckler)
+  ~o!bom027~ => 190 // beren's buckler of baleful woe (buckler)
+  ~rr#buc01~ => 190 // kiel's buckler (buckler +1)
+  ~rr#buc02~ => 190 // buckler +1 (also present in tutu and the bg1 portion of bgt)
+  ~rr#buc03~ => 190 // buckler +2 (also present in tutu and the bg1 portion of bgt)
+  ~rr#buc04~ => 190 // buckler +3
+  ~rr#rward~ => 190 // rogue's ward (buckler +2)
+  ~rr#shl01~ => 190 // last defense (buckler +1, also present in tutu and the bg1 portion of bgt)
+  ~rr#shl02~ => 190 // safeguard (buckler +2, also present in tutu and the bg1 portion of bgt)
+  ~s!shld03~ => 190 // buckler +3 (buckler)
+  ~shld08~   => 190
+  ~shld09~   => 190
+  ~shld10~   => 190
+  ~shld17~   => 190
+  ~shld20~   => 190
+  ~skelshld~ => 190
+
+  // small shields
+  ~_ishld02~ => 191
+  ~_shld01~  => 191
+  ~_shld02~  => 191
+  ~_shld11~  => 191
+  ~_shld12~  => 191
+  ~_shld99~  => 191
+  ~brueshld~ => 191 // small shield +1 (small shield)
+  ~c2shld02~ => 191
+  ~cbcl058~  => 191 // waukeen's defender
+  ~cbsbmltw~ => 191
+  ~dscushld~ => 191
+  ~dshld01~  => 191
+  ~dsjeshld~ => 191
+  ~dsshld51~ => 191
+  ~ishld02~  => 191
+  ~mgishld2~ => 191 // small shield +2, shield of fortitude (small shield)
+  ~ntshld01~ => 191 // small shield +2, 'shield of free action' (small shield)
+  ~psq60~    => 191
+  ~shld01~   => 191
+  ~shld02~   => 191
+  ~shld11~   => 191
+  ~shld12~   => 191
+  ~shld24~   => 191
+  ~shld25~   => 191
+  ~shld28~   => 191
+  ~shld51~   => 191 // small shield +2 'sun shield' (small shield)
+  ~shld99~   => 191
+  ~shldds01~ => 191 // cúchoinneach's small shield +3 "the moon" (small shield)
+  ~slayer1~  => 191 // small shield +2 (small shield)
+  ~waukeen~  => 191 // waukeen's defender (small shield)
+
+  // medium shields
+  ~_ishld03~ => 192
+  ~_shld03~  => 192
+  ~_shld04~  => 192
+  ~_shld13~  => 192
+  ~_shld14~  => 192
+  ~c2anom01~ => 192
+  ~cbcl005~  => 192 // the argent shield (medium shield)
+  ~cbpdofcm~ => 192 // shield of the purple dragon (medium shield)
+  ~cbrjr015~ => 192 // dzance's guardian (medium shield?)
+  ~cbshldwk~ => 192 // waukeen's defender (medium shield?)
+  ~cbshsoub~ => 192
+  ~chalshld~ => 192
+  ~cmgforg8~ => 192
+  ~coms01~   => 192
+  ~coms02~   => 192
+  ~deitm119~ => 192
+  ~deitm120~ => 192
+  ~dsshld52~ => 192
+  ~dsshld53~ => 192
+  ~dwshld01~ => 192
+  ~elemshld~ => 192
+  ~gcmsh01~  => 192
+  ~ishld03~  => 192
+  ~mgishld1~ => 192 // medium shield +2, featherweight (medium shield)
+  ~npshld~   => 192
+  ~nsshld01~ => 192 // hermes' shield +1 (medium shield)
+  ~nsshld02~ => 192 // elemental shield +4 (medium shield)
+  ~psq59~    => 192
+  ~psq61~    => 192
+  ~r!kitshd~ => 192 // mageslayer shield (large shield/medium shield, i can't see the item icon without installing)
+  ~r#runed~  => 192
+  ~rr#guara~ => 192 // the guardian (medium shield +2, non-metallic, usable by druids)
+  ~s!shld01~ => 192 // delryn family legacy +4 (as per anomen's existing shield)
+  ~sgshld1~  => 192
+  ~shghost~  => 192
+  ~shld03~   => 192
+  ~shld04~   => 192
+  ~shld13~   => 192
+  ~shld14~   => 192
+  ~shld21~   => 192
+  ~shld22~   => 192
+  ~shld26~   => 192
+  ~shld27~   => 192
+  ~shld29~   => 192
+  ~shld32~   => 192
+  ~shld52~   => 192 // medium shield +2 (medium shield)
+  ~shld53~   => 192 // medium shield +2 'heart of the dragon' (medium shield)
+  ~shldgraz~ => 192
+  ~shldred~  => 192 // the red knight's shield (medium shield)
+  ~sshldmag~ => 192
+  ~ttshld01~ => 192
+  ~u#shld01~ => 192
+  ~ucmgsh01~ => 192 // medium shield +3 (medium shield)
+  ~ucmgsh02~ => 192 // drow shield +3 (medium shield)
+  ~wa2shiel~ => 192
+  ~x#ajshld~ => 192
+
+  // tower shields
+  ~_shld05~  => 194
+  ~_shld06~  => 194
+  ~_shld07~  => 194
+  ~_shld15~  => 194
+  ~_shld16~  => 194
+  ~_shld18~  => 194
+  ~_shld19~  => 194
+  ~cb351g03~ => 194
+  ~cbcl037~  => 194 // mystery of the dead (large shield)
+  ~cblyshld~ => 194 // lyrar's shield (large shield)
+  ~cbmhshld~ => 194 // large shield +3 (large shield)
+  ~cbmilt03~ => 194
+  ~cbmilt13~ => 194
+  ~cbrolfsh~ => 194 // rolf sureblade's shield (medium shield? or tower shield?)
+  ~cbsbmltx~ => 194
+  ~cbsbmlty~ => 194
+  ~cbtempus~ => 194 // holy shield of tempus (large shield)
+  ~cbtssd01~ => 194 // large shield +5 (large shield)
+  ~cbwtni5a~ => 194 // shield of belvin (large shield?)
+  ~cmshld01~ => 194 // shield +3 (kite/tower/body shield)
+  ~deitm122~ => 194
+  ~dsshld02~ => 194
+  ~dsshld54~ => 194
+  ~fwshld01~ => 194
+  ~gcmsh02~  => 194
+  ~guardshz~ => 194 // soul guard (tower shield)
+  ~jers~     => 194
+  ~mashld01~ => 194 // large mithril shied +3 (large shield)
+  ~mystery~  => 194
+  ~ntshld02~ => 194 // shield of the firewine (large shield)
+  ~ntshld03~ => 194 // reinforced large shield (large shield)
+  ~orrshld~  => 194 // orrick's rhino beetle shield (tower shield)
+  ~psq117~   => 194
+  ~psq58~    => 194
+  ~s!shld02~ => 194 // supreme shelter +6 (tower shield)
+  ~shld05~   => 194
+  ~shld06~   => 194
+  ~shld07~   => 194
+  ~shld15~   => 194
+  ~shld16~   => 194
+  ~shld18~   => 194
+  ~shld19~   => 194
+  ~shld23~   => 194
+  ~shld30~   => 194
+  ~shld31~   => 194
+  ~shld54~   => 194 // large shield +2, +7 vs. missiles: 'the wall' (large shield)
+  ~shldraid~ => 194
+  ~shldxz~   => 194
+  ~tzshld01~ => 194
+  ~ushld3b~  => 194 // storming shield +3 (tower shield)
+  ~x#fash01~ => 194
+
+  // leather armor
+  ~_leat01~  => 200
+  ~_leat02~  => 200
+  ~_leat03~  => 200
+  ~_leat09~  => 200
+  ~ardeadx~  => 200 // armour of the dead +3 (leather armour)
+  ~c2leat01~ => 200
+  ~cbsbmltr~ => 200
+  ~cbsbmlts~ => 200
+  ~cmleat5~  => 200 // nature's divine (leather armour)
+  ~ddhrtles~ => 200
+  ~deitm089~ => 200
+  ~fwleat01~ => 200
+  ~i1lt001~  => 200 // skeleton ribcage (leather armour?)
+  ~i1lt002~  => 200 // anti-imprisonment armor (leather armour?, move silently: -20, lock picking: -10, find/remove traps: -10, pick pockets: -10)
+  ~leat01~   => 200
+  ~leat02~   => 200
+  ~leat03~   => 200
+  ~leat09~   => 200
+  ~leat11~   => 200
+  ~leat12~   => 200
+  ~leat13~   => 200
+  ~leat14~   => 200
+  ~leat21~   => 200
+  ~leat22~   => 200
+  ~leatds02~ => 200 // cúchoinneach personal leather armor +4 (leather armour)
+  ~leatds05~ => 200 // cúchoinneach personal leather armor +4 (leather armour)
+  ~macmle01~ => 200 // woodland armor (leather armour)
+  ~psq66~    => 200
+  ~s!leat01~ => 200 // improved human flesh (leather armour)
+  ~s!leat02~ => 200 // spirit of the night (leather armour)
+  ~samarmx1~ => 200
+  ~sgleat1~  => 200
+  ~sgleat3~  => 200
+  ~sgleat4~  => 200
+  ~shar20~   => 200 // blade master leather (leather armour)
+  ~ttleat~   => 200
+  ~visleat1~ => 200
+  ~warlkarm~ => 200 // stormcloud "kraken's bane" (leather armour)
+  ~wlfleat~  => 200 // wulfgar's fur armor (leather armour)
+  ~wulfhide~ => 200 // wulfgar's fur armor (leather armour)
+  ~xarm004~  => 200
+
+  // chain mail
+  ~_chan01~  => 201
+  ~_chan02~  => 201 
+  ~_chan03~  => 201 
+  ~_chan06~  => 201 
+  ~_chan07~  => 201
+  ~_ichan01~ => 201
+  ~_juschan~ => 201
+  ~cbchanp4~ => 201 // chain mail +4 (chain mail)
+  ~cbcl013~  => 201  // baleful mail (chainmail)
+  ~cbcl033~  => 201  // mail of life (chainmail(
+  ~cbsbmltk~ => 201
+  ~cbtsch01~ => 201 // chain mail +5 (chain mail armour)
+  ~cbxtgcdd~ => 201 // masterwork chain mail armor +1 (chain mail armour)
+  ~chan01~   => 201
+  ~chan02~   => 201
+  ~chan03~   => 201
+  ~chan06~   => 201
+  ~chan07~   => 201
+  ~chan08~   => 201
+  ~chan09~   => 201
+  ~chan10~   => 201
+  ~chan11~   => 201
+  ~chan12zz~ => 201
+  ~chan21~   => 201
+  ~chan6xx~  => 201
+  ~chands01~ => 201 // chain mail +2, blessed chain mail (chain mail)
+  ~chands09~ => 201 // chain mail +3 (chain mail)
+  ~coma06~   => 201
+  ~deitm053~ => 201
+  ~deitm087~ => 201
+  ~dschan01~ => 201
+  ~dschan02~ => 201
+  ~dschan03~ => 201
+  ~elvarmx~  => 201
+  ~fwchan01~ => 201
+  ~fwchan04~ => 201
+  ~i1ch002~  => 201  // voice of doom (chain mail)
+  ~ichan01~  => 201
+  ~juschan~  => 201
+  ~kkchain~  => 201  // chain mail +3 (chain mail)
+  ~maforg07~ => 201 // improved chainmail +3, chainmail +3: mail of the dead (chainmail)
+  ~maillif~  => 201
+  ~npchan~   => 201
+  ~ntchan03~ => 201 // chain mail +3: 'sage's armor' (chain mail armour)
+  ~ntchan05~ => 201 // chailmail +5: 'ebon chain' (chainmail)
+  ~o!bom003~ => 201 // tangor’s mystical chain (chain mail)
+  ~r#swan~   => 201
+  ~s!chan01~ => 201 // supreme chain mail +6 (chain mail armour)
+  ~s!leat03~ => 201 // improved corthala family armor (as per valygar's existing armour)
+  ~sgchan06~ => 201
+  ~sgchan3~  => 201
+  ~shararm~  => 201
+  ~slayer3~  => 201  // jet'laya's chainmail (chain mail armour)
+  ~tamchain~ => 201
+  ~vischan1~ => 201
+  
+  // studded leather that provides HiS bonii
+  ~_leat08~  => 202 // shadow armor (shadow studded armour with +15% hide in shadows)
+  ~leat08~   => 202 // shadow armor (shadow studded armour with +15% hide in shadows)
+  ~leat08a~  => 202 // improved shadow armor (shadow studded armour with +15% hide in shadows)
+  ~ntleat01~ => 202 // improved shadow armor (studded leather armour, +15% hide in shadows)
+  ~m#asleat~ => 202 // apprentice shadow armor (studded leather armour, +5% hide in shadows)
+  ~sd_vs~    => 202 // vengeful shadows (studded leather armour, +10% hide in shadows)
+  ~ucmgle01~ => 202 // woodland armor +6 (studded leather, druid usable, +20% bonus to hide in shadows)
+
+  // full plate mail
+  ~_plat04~  => 203
+  ~_plat05~  => 203
+  ~_plat06~  => 203
+  ~bruenpla~ => 203
+  ~c!gplate~ => 203
+  ~c2keld01~ => 203
+  ~cbrjr017~ => 203 // laeral's storm armor (full plate armour, non-metallic)
+  ~cbsbmltu~ => 203
+  ~cbsbmltv~ => 203
+  ~cbtspt01~ => 203 // full plate mail +5 (full plate mail armour)
+  ~chalarm~  => 203
+  ~cmgforg7~ => 203
+  ~coma04~   => 203
+  ~deitm086~ => 203
+  ~deitm090~ => 203
+  ~deitm096~ => 203
+  ~dplate~   => 203
+  ~dsebplat~ => 203
+  ~dwplat01~ => 203
+  ~ebonplt~  => 203 // full plate armor +1: 'ebon plate (full plate armour)
+  ~elemplat~ => 203
+  ~flat01~   => 203
+  ~flat02~   => 203
+  ~flat03~   => 203
+  ~flat04~   => 203
+  ~gcmpl01~  => 203
+  ~jera~     => 203
+  ~kinplat~  => 203 // kindrek's full plate (full plate armour)
+  ~kreeplat~ => 203 // full metal plate of stone +2 (full plate armour)
+  ~mdsiplat~ => 203
+  ~mgiplat1~ => 203 // full plate +1, restless spirit (full plate armour)
+  ~minbalpl~ => 203
+  ~minplatx~ => 203
+  ~npplat~   => 203
+  ~palplat~  => 203
+  ~plat04~   => 203
+  ~plat05~   => 203
+  ~plat05xx~ => 203
+  ~plat06~   => 203
+  ~plat09~   => 203
+  ~plat14~   => 203
+  ~plat15~   => 203
+  ~plat16~   => 203
+  ~plat19~   => 203
+  ~plat20~   => 203
+  ~plat21~   => 203
+  ~plat22~   => 203
+  ~plat23~   => 203
+  ~plat74~   => 203 // full plate mail of unknown origin (full plate armour, very light)
+  ~platj4~   => 203
+  ~platsar~  => 203
+  ~psq64~    => 203
+  ~r#plat~   => 203
+  ~raidplat~ => 203
+  ~s!plat01~ => 203 // enhanced pride of the legion +4 (full plate armor)
+  ~s!plat02~ => 203 // huskar lord's armor +5 (full plate armour)
+  ~secret05~ => 203
+  ~sgplat1~  => 203
+  ~trollarm~ => 203 // troll flesh (hide armour?)
+  ~tzplat01~ => 203
+  ~u#plat01~ => 203
+  ~visplat2~ => 203
+  ~wa2plat~  => 203
+  ~xarm001~  => 203
+  ~xarm003~  => 203
+  ~xarm005~  => 203
+
+  // hide armor
+  ~_leat10~  => 204
+  ~ararmor~  => 204 // ariena's armor (hide armour)
+  ~bleat01~  => 204
+  ~bleat02~  => 204
+  ~bleat03~  => 204
+  ~c2hide01~ => 204
+  ~dleat10~  => 204
+  ~fwleat03~ => 204
+  ~fwleat04~ => 204
+  ~leat10~   => 204
+  ~leat20~   => 204
+  ~leatbal~  => 204 // bala's leather +4 (hide armour)
+  ~leatbar~  => 204 // barbarian hide +1 (hide armour)
+  ~leatds03~ => 204 // thorfinn's hide armor (hide armour)
+  ~o!bom011~ => 204 // troll hide +4 (hide armour)
+  ~u#hfheah~ => 204 // cornugan hide armour (hide armour +1)
+
+  // plate mail
+  ~_iplat01~ => 205
+  ~_plat01~  => 205
+  ~_plat02~  => 205
+  ~_plat07~  => 205
+  ~_plat08~  => 205
+  ~_plat98~  => 205
+  ~blood~    => 205 // bathed in blood (plate armour)
+  ~brueplt1~ => 205 // bruenor's armor, plate mail +2 (plate armour)
+  ~c2plat01~ => 205
+  ~cbbdarmr~ => 205 // blue dragon plate (plate armour)
+  ~cbcl027~  => 205
+  ~cblyplat~ => 205 // lyrar's plate (plate armour)
+  ~cbmilt01~ => 205
+  ~cbmilt11~ => 205
+  ~cbmilt21~ => 205
+  ~cbplat13~ => 205 // gorgon plate +5 (plate armour)
+  ~cbuhgvar~ => 205 // holy armor of torm (plate armour)
+  ~cbuhgvct~ => 205
+  ~coma05~   => 205
+  ~coma07~   => 205
+  ~coma11~   => 205 // green dragon's plate (plate armour)
+  ~deitm088~ => 205
+  ~drowplt1~ => 205 // drow adamantite plate armor +3 (drow plate armour)
+  ~drowplt2~ => 205 // drow adamantite plate armor +4 (drow plate armour)
+  ~drowplt3~ => 205 // drow adamantite plate armor +5 (drow plate armour)
+  ~dscoarm~  => 205
+  ~dscryarm~ => 205
+  ~dsfearm~  => 205
+  ~flamplat~ => 205 // plate of smoldering (plate armour)
+  ~fwplat01~ => 205
+  ~fwplat02~ => 205
+  ~fwplat03~ => 205
+  ~fwplat04~ => 205
+  ~glory~    => 205 // the glory of suffering (plate armour)
+  ~i1pl001~  => 205 // gubbie armor (plate armour)
+  ~iceplat~  => 205 // ice plate (plate armour)
+  ~iplat01~  => 205
+  ~king~     => 205 // winter king's plate (hide armour)
+  ~lotharmo~ => 205 // lothaullan (plate armour)
+  ~mapla001~ => 205 // duragons plate +4 (plate armour)
+  ~maplat02~ => 205 // dwarven mithril plate (plate armour)
+  ~mplat01~  => 205 // king's plate mail +5 (plate armour)
+  ~ntplat01~ => 205 // (plate armour)
+  ~o!bom001~ => 205 // mother’s curse +1 (plate armour)
+  ~plat01~   => 205
+  ~plat02~   => 205
+  ~plat07~   => 205
+  ~plat08~   => 205
+  ~plat10~   => 205
+  ~plat11~   => 205
+  ~plat12~   => 205
+  ~plat13~   => 205
+  ~plat17~   => 205
+  ~plat18~   => 205
+  ~plat98~   => 205
+  ~plat99~   => 205
+  ~platds01~ => 205 // crystal plate mail (plate armour)
+  ~platds03~ => 205 // ferthgil's dwarven mithril plate battle armor (plate armour)
+  ~platds04~ => 205 // conchobhair strongblade's blessed plate mail armor (plate armour
+  ~platds05~ => 205 // plate mail +3 : 'the practical defense (plate armour)
+  ~platgr01~ => 205
+  ~platraid~ => 205
+  ~psq62~    => 205
+  ~psq63~    => 205
+  ~r!kitplt~ => 205 // bringer of vengeance: kitanya's plate mail (plate armour, specifically tailored for the npc)
+  ~runeplat~ => 205
+  ~s!plat03~ => 205 // improved ankheg mail (as per improved ankheg mail in item upgrade)
+  ~sgplat2~  => 205
+  ~swanarm~  => 205 // black swan armor (plate armour?)
+  ~ucmgpl01~ => 205 // winter king's plate (plate armour)
+  ~visplat1~ => 205
+  ~xarm006~  => 205
+
+  // scale mail
+  ~c2valy01~ => 206
+  ~cbbnlch8~ => 206
+  ~chan17~   => 206
+  ~chan20~   => 206
+  ~cmgcha01~ => 206
+  ~fwleat02~ => 206
+  ~kiyoarm1~ => 206 // verdant vigil (scale armour)
+  ~kiyoarm2~ => 206 // verdant vigil +2 (scale armour)
+  ~kiyoarm3~ => 206 // verdant vigil +4 (scale armour)
+  ~platblue~ => 206 // blue dragon scale (scale armour)
+  ~platwy~   => 206 // wyvern's scale ("fashioned from the hide of a dead wyvern, the armor is as cumbersome as scalemail but provides the protection of magical platemail")
+  ~ritdrag~  => 206
+  ~scal01~   => 206
+  ~scal02~   => 206
+  ~scal03~   => 206
+  ~sgsplt3~  => 206
+  ~u#plat02~ => 206
+  ~xarm002~  => 206
+  ~zilfgt~   => 206
+
+  // splint mail
+  ~_chan04~  => 207
+  ~_chan05~  => 207
+  ~_ichan04~ => 207
+  ~band01~   => 207
+  ~band02~   => 207
+  ~band03~   => 207
+  ~band04~   => 207
+  ~cbtsst01~ => 207 // splint mail +4 (splint mail)
+  ~celebros~ => 207 // mail of celebros (splint armour)
+  ~chan04~   => 207
+  ~chan05~   => 207
+  ~chan18~   => 207
+  ~chands05~ => 207 // sukien holy armor (splint mail armour)
+  ~chands08~ => 207 // crusaders armor (splint mail armour)
+  ~dschan04~ => 207
+  ~ichan04~  => 207
+  ~j#spli06~ => 207
+  ~korim~    => 207 // splint mail armor +4 - korim's skin (splint mail armour)
+  ~machan01~ => 207 // splint mail, mystra's armor (splint mail)
+  ~sgsplt1~  => 207
+  ~sgsplt2~  => 207
+  ~vischan2~ => 207
+
+  // studded leather
+  ~_ileat04~ => 208
+  ~_leat04~  => 208
+  ~_leat05~  => 208
+  ~_leat07~  => 208
+  ~cbxtshdd~ => 208 // masterwork leather armor +4 (studded leather armour)
+  ~cyleat~   => 208
+  ~d0leat08~ => 208
+  ~d0t#leat~ => 208 // studded leather armour +3 (studded leather armour)
+  ~dscuarm~  => 208
+  ~dsleat01~ => 208
+  ~dsthrarm~ => 208
+  ~dswrkarm~ => 208
+  ~fwleat05~ => 208
+  ~fwleat06~ => 208
+  ~g#leat01~ => 208
+  ~gnwml~    => 208 // gnomish workman's leather +2 (studded leather armour)
+  ~ileat04~  => 208
+  ~leat04~   => 208
+  ~leat05~   => 208
+  ~leat06~   => 208
+  ~leat07~   => 208
+  ~leat15~   => 208
+  ~leat16~   => 208
+  ~leat17~   => 208
+  ~leat18~   => 208
+  ~leat19~   => 208
+  ~leat23~   => 208
+  ~leat24~   => 208
+  ~leata7~   => 208 // studded leather armor +3 (studded leather armour)
+  ~leatds01~ => 208 // armor of thorns (studded leather armour)
+  ~leatraid~ => 208
+  ~leatveng~ => 208 // vengeful shadows (studded leather armour)
+  ~macmle02~ => 208 // studded leather, stormcloud (studded leather armour)
+  ~mgileat1~ => 208 // studded leather +3, cured leaf hauberk (studded leather armour)
+  ~ntleat04~ => 208 // studded leather armor +3 (studded leather armour)
+  ~ntleat05~ => 208 // studded leather of resistance (studded leather armour)
+  ~psq65~    => 208
+  ~rr#abih~  => 208
+  ~sdim526~  => 208
+  ~sgleat2~  => 208
+  ~sileat~   => 208
+  ~u#leat01~ => 208
+  ~u#leat02~ => 208
+  ~visleat2~ => 208
+
+  // elven chain
+  ~a!bchan1~ => 300
+  ~bsingchn~ => 300 // mirathar (bladesinger chainmail)
+  ~c2chan01~ => 300
+  ~chan12~   => 300
+  ~chan13~   => 300
+  ~chan14~   => 300
+  ~chan15~   => 300
+  ~chan16~   => 300
+  ~chan19~   => 300
+  ~chands06~ => 300 // elven chainmail +1 (elven chain mail)
+  ~clolth~   => 300
+  ~drowchn1~ => 300 // drow adamantite mesh armor +1 (drow mesh armour)
+  ~drowchn2~ => 300 // drow adamantite mesh armor +2 (drow mesh armour)
+  ~drowchn3~ => 300 // drow adamantite mesh armor +3 (drow mesh armour)
+  ~dsjearm~  => 300
+  ~dskorim~  => 300
+  ~dwchan01~ => 300
+  ~dwchan02~ => 300
+  ~echan01~  => 300 // elven chainmail +2 (elven chainmail)
+  ~echan02~  => 300 // underdark mail +1 (elven chainmail)
+  ~efml01~   => 300
+  ~fwchan02~ => 300
+  ~fwchan03~ => 300
+  ~gcmch01~  => 300
+  ~illas04~  => 300
+  ~ntchan04~ => 300 // elven chainmail of sorcery (elven chainmail)
+  ~ntchan06~ => 300 // chainmail of the firewine (elven chainmail)
+  ~pchan~    => 300
+  ~rr#chn01~ => 300 // dark elven chain (elven chain)
+  ~scal04~   => 300
+  ~sgchan1~  => 300
+  ~sgchan2~  => 300
+  ~tzchan01~ => 300
+  ~u#chan01~ => 300
+  ~u#chan07~ => 300 // elven chainmail of the hand +3
+  ~ucmgch01~ => 300 // drow chain +3 (elven chain mail, can cast spells faster too, does not decay in sunlight)
+  ~ucmgch02~ => 300 // drow admantine chain +5 (drow elven chain mail, does not decay on surface)
+  ~x#garch~  => 300
+  ~x#garch2~ => 300
+
+  // chain special
+  ~o!bom002~ => 301 // ranger mail +5 (chain mail armour, allows hide/move silently to be used unrestricted)
+
+  // special studded leather that only gets thieving penalties
+  ~a!bleat1~ => 302 // from s&s
+  ~a!bleat2~ => 302 // from s&s
+  ~dskearm~  => 302 // from dsotsc
+  ~ntleat02~ => 302 // from ntotsc
+  ~ntleat03~ => 302 // from ntotsc
+
+  // special chain that only gets thieving penalties (but is not elven)
+  ~j#indi01~ => 303 // indi's chain vest (chainmail, can cast spells without penalties)
+  ~o!bom004~ => 303 // abdel's mage chain (chain mail armour, 20% chance of miscast magic)
+  ~o!bom005~ => 303 // abdel's mage chain +1 (chain mail armour, 30% chance of miscast magic)
+  ~o!bom006~ => 303 // abdel's mage chain +2 (chain mail armour, 40% chance of miscast magic)
+  ~s!chan02~ => 303 // eternal melody +5 (chain armour, can cast spells in it for bards)
+
+  // special plate that only gets thieving penalties
+  ~o!bom007~ => 304 // abdel's mage plate (plate armour, 30% chance of miscast magic)
+  ~o!bom008~ => 304 // abdel's mage plate +1 (plate armour, 40% chance of miscast magic)
+  ~o!bom009~ => 304 // abdel's mage plate +2 (plate armour, 50% chance of miscast magic)
+
+END

@@ -1,0 +1,21 @@
+DEFINE_PATCH_MACRO ~prof_descripts~ BEGIN
+
+  SPRINT prof_text_match @216007
+  SPRINT prof_text       @216008
+
+  PATCH_IF ("%prof%" = 91) BEGIN // short swords/ninja-tos
+    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%prof_text_match%\(\(%scimitar% */ *%waki% */ *\(%ninjato%\|Ninja-?to\|Ninja-?t≈\)\)\|\(%ssword%\)\)~ ~%prof_text% %ssword%/%ninjato%~
+  END ELSE
+  PATCH_IF ("%prof%" = 94) BEGIN // katanas/wakizashis
+    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%prof_text_match%\(\(%scimitar% */ *%waki% */ *\(%ninjato%\|Ninja-?to\|Ninja-?t≈\)\)\|\(%katana%\)\)~ ~%prof_text% %katana%/%waki%~
+  END ELSE
+  PATCH_IF ("%prof%" = 95) BEGIN // scimitars
+    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%prof_text_match%%scimitar% */ *%waki% */ *\(%ninjato%\|Ninja-?to\|Ninja-?t≈\)~ ~%prof_text% %scimitar%~
+  END ELSE
+  PATCH_IF ("%prof%" = 101) BEGIN // morningstars/maces
+    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%prof_text_match%\(\(%flail% */ *%mstar1% ?%mstar2%\)\|\(%mace%\)\)~ ~%prof_text% %mace%/%mstar%~
+  END ELSE BEGIN // flails
+    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%prof_text_match%%flail% */ *\(%mstar1% ?%mstar2%\)~ ~%prof_text% %flail%~
+  END
+
+END

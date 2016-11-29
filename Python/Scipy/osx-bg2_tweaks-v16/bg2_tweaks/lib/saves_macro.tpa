@@ -1,0 +1,97 @@
+DEFINE_PATCH_MACRO ~save_via_level~ BEGIN
+
+  READ_LONG  0x34 level
+  READ_LONG  0x64 abil_off
+  READ_SHORT 0x68 abil_num
+  READ_LONG  0x6a fx_off
+  SET fx_delta = 0
+  SET save_bonus = 0
+  SET step = 5
+  SET sanity_check = 0
+  PATCH_IF ((spell_type = 2) AND (level = 7)) BEGIN // priest l7 spells only exception
+    SET target_level = 14 + step
+  END ELSE BEGIN
+    SET target_level = (((level * 2) - 1) + step)
+  END
+  FOR (index = 0 ; index < abil_num ; ++index) BEGIN
+    PATCH_IF (index = 0) BEGIN
+      WRITE_SHORT (abil_off + 0x10 + (index * 0x28)) 1
+    END
+    READ_SHORT (abil_off + 0x10 + (index * 0x28)) min_lev
+    PATCH_IF (min_lev <= target_level) BEGIN
+      PATCH_IF (min_lev = target_level) BEGIN
+        SET save_bonus -= 1
+        SET target_level += step
+      END
+      READ_SHORT  (abil_off + 0x1e + (index * 0x28)) abil_fx_num // reads number of fx
+      WRITE_SHORT (abil_off + 0x20 + (index * 0x28)) (THIS + fx_delta) // adjusts index of effects
+      READ_SHORT  (abil_off + 0x20 + (index * 0x28)) abil_fx_idx // reads index of effects
+      FOR (index2 = 0 ; index2 < abil_fx_num ; ++index2) BEGIN
+        READ_LONG    (fx_off + 0x24 + ((abil_fx_idx + index2) * 0x30)) saves           // save type
+        PATCH_IF (saves != 0) BEGIN // if save allowed on effect
+          WRITE_LONG (fx_off + 0x28 + ((abil_fx_idx + index2) * 0x30)) (THIS + save_bonus) // include new penalty
+          SET sanity_check = 1
+        END
+      END
+      PATCH_IF ((index = 0) AND (sanity_check = 0)) BEGIN // if no saves for lev 1 ability, kill patch
+        SET index = abil_num  // kill this loop
+        SET target_level = 51 // make sure while loop down below also don't fire
+      END
+    END ELSE
+    PATCH_IF (min_lev > target_level) BEGIN // if ability headers have jumped ahead of next save break
+      // clone previous ability then
+      READ_ASCII (abil_off +        ((index - 1) * 0x28)) abil_clone (0x28) // read last ability
+      READ_SHORT (abil_off + 0x1e + ((index - 1) * 0x28)) abil_fx_num // reads number of fx from last ability
+      READ_SHORT (abil_off + 0x20 + ((index - 1) * 0x28)) abil_fx_idx // reads index of last effects from last ability
+      // create effects for next level based off previous level effects
+      FOR (index2 = abil_fx_num - 1 ; index2 >= 0 ; index2 = index2 - 1) BEGIN
+        READ_ASCII     (fx_off +        ((abil_fx_idx + index2) * 0x30)) clone_fx (0x30) // reads entire effect
+        READ_LONG      (fx_off + 0x24 + ((abil_fx_idx + index2) * 0x30)) saves           // save type
+        INSERT_BYTES   (fx_off +        ((abil_fx_idx + abil_fx_num) * 0x30)) 0x30
+          WRITE_ASCIIE (fx_off +        ((abil_fx_idx + abil_fx_num) * 0x30)) "%clone_fx%" // clones effect
+          PATCH_IF (saves != 0) BEGIN // if save allowed on effect
+            WRITE_LONG  (fx_off + 0x28 + ((abil_fx_idx + abil_fx_num) * 0x30)) (THIS - 1) // include new penalty
+          END
+      END
+      // effects created, now add new ability
+      INSERT_BYTES   (abil_off +        (index * 0x28)) 0x28
+        WRITE_ASCIIE (abil_off +        (index * 0x28)) "%abil_clone%"   // clones last ability
+        WRITE_SHORT  (abil_off + 0x10 + (index * 0x28)) target_level // min level
+        WRITE_SHORT  (abil_off + 0x20 + (index * 0x28)) (THIS + abil_fx_num) // adjusts index of effects
+      SET fx_delta += abil_fx_num
+      SET abil_num += 1
+      SET fx_off += 0x28
+      SET save_bonus -= 1
+      SET target_level += step
+    END
+  END
+  // now, to add abilities out to 50
+  WHILE (target_level < 51) BEGIN
+    // clone last ability
+    READ_ASCII (abil_off +        ((abil_num - 1) * 0x28)) abil_clone (0x28) // read last ability
+    READ_SHORT (abil_off + 0x1e + ((abil_num - 1) * 0x28)) abil_fx_num // reads number of fx from last ability
+    READ_SHORT (abil_off + 0x20 + ((abil_num - 1) * 0x28)) abil_fx_idx // reads index of last effects from last ability
+    // create effects for next level based off previous level effects
+    FOR (index2 = abil_fx_num - 1 ; index2 >= 0 ; index2 = index2 - 1) BEGIN
+      READ_ASCII     (fx_off +        ((abil_fx_idx + index2) * 0x30)) clone_fx (0x30) // reads entire effect
+      READ_LONG      (fx_off + 0x24 + ((abil_fx_idx + index2) * 0x30)) saves           // save type
+      INSERT_BYTES   (fx_off +        ((abil_fx_idx + abil_fx_num) * 0x30)) 0x30
+        WRITE_ASCIIE (fx_off +        ((abil_fx_idx + abil_fx_num) * 0x30)) "%clone_fx%" // clones effect
+        PATCH_IF (saves != 0) BEGIN // if save allowed on effect
+          WRITE_LONG  (fx_off + 0x28 + ((abil_fx_idx + abil_fx_num) * 0x30)) (THIS - 1) // include new penalty
+        END
+    END
+    // effects created, now add new ability
+    INSERT_BYTES   (abil_off +        (abil_num * 0x28)) 0x28
+      WRITE_ASCIIE (abil_off +        (abil_num * 0x28)) "%abil_clone%"   // clones last ability
+      WRITE_SHORT  (abil_off + 0x10 + (abil_num * 0x28)) target_level // min level
+      WRITE_SHORT  (abil_off + 0x20 + (abil_num * 0x28)) (abil_fx_idx + abil_fx_num) // fx index
+    SET target_level += step
+    SET fx_delta += abil_fx_num
+    SET abil_num += 1
+    SET fx_off += 0x28
+  END
+  WRITE_SHORT 0x68 abil_num
+  WRITE_LONG  0x6a fx_off
+
+END
