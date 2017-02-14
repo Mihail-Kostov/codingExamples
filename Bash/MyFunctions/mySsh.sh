@@ -2,22 +2,21 @@
 
 # Connect to different ssh addresses
 
+run(){
+  COLOR='\033[1;33m'
+  DEFAULT='\033[0m'
+  echo -e "${COLOR}-> ${1}${DEFAULT}";
+  eval ${1};
+}
+
 case ${1} in
   "uboone")       	if [ -z "$2" ]; then
-				echo "> ssh -X -Y sporzio@uboonegpvm03.fnal.gov"
-                  		ssh -X -Y sporzio@uboonegpvm03.fnal.gov
+                  		run "ssh -X -Y sporzio@uboonegpvm07.fnal.gov"
 			else
-				echo "> ssh -X -Y sporzio@uboonegpvm0${2}.fnal.gov"
-                  		ssh -X -Y sporzio@uboonegpvm0${2}.fnal.gov 
+                  		run "ssh -X -Y sporzio@uboonegpvm0${2}.fnal.gov"
 			fi;;
-  "manchester")   	echo "> ssh -X -Y davide@higgs.hep.manchester.ac.uk"
-                  	ssh -X -Y davide@higgs.hep.manchester.ac.uk ;;
-  "database")     	echo "> ssh -X -Y uboonedb@ppdhcp120.hep.manchester.ac.uk"
-                  	ssh -X -Y uboonedb@ppdhcp120.hep.manchester.ac.uk ;;
-  "database_socket")   echo "> ssh -L 8080:127.0.0.1:5432 uboonedb@ppdhcp120.hep.manchester.ac.uk"
-                  	ssh -L 8080:127.0.0.1:5432 uboonedb@ppdhcp120.hep.manchester.ac.uk ;;
-  "cambridge")    	echo "> ssh -X -Y uboone04@pclv.hep.phy.cam.ac.uk"
-                  	ssh -X -Y uboone04@pclv.hep.phy.cam.ac.uk ;;
-  *)              	echo "> ssh -X -Y davide@${1}.hep.manchester.ac.uk"
-                  	ssh -X -Y davide@${1}.hep.manchester.ac.uk ;;
+  "manchester")   	run "ssh -X -Y davide@higgs.hep.manchester.ac.uk" ;;
+  "database")     	run "ssh -X -Y uboonedb@ppdhcp120.hep.manchester.ac.uk" ;;
+  "database_socket")   run "ssh -L 8080:127.0.0.1:5432 uboonedb@ppdhcp120.hep.manchester.ac.uk" ;;
+  *)              	run "ssh -X -Y davide@${1}.hep.manchester.ac.uk" ;;
 esac

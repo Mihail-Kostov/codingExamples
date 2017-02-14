@@ -1,0 +1,168 @@
+
+BNBHeavySterile1_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 130
+	Discr3threshold : 10
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile2_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 170
+	Discr3threshold : 10
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile3_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 210
+	Discr3threshold : 10
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile4_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 250
+	Discr3threshold : 10
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile5_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 130
+	Discr3threshold : 30
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile6_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 170
+	Discr3threshold : 30
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile7_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 210
+	Discr3threshold : 30
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile8_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 250
+	Discr3threshold : 30
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile9_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 130
+	Discr3threshold : 50
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile10_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 170
+	Discr3threshold : 50
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile11_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 210
+	Discr3threshold : 50
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile12_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 250
+	Discr3threshold : 50
+	TriggerThresMult : 1
+}
+
+BNBHeavySterile13_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 130
+	Discr3threshold : 10
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile14_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 170
+	Discr3threshold : 10
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile15_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 210
+	Discr3threshold : 10
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile16_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 250
+	Discr3threshold : 10
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile17_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 130
+	Discr3threshold : 30
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile18_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 170
+	Discr3threshold : 30
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile19_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 210
+	Discr3threshold : 30
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile20_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 250
+	Discr3threshold : 30
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile21_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 130
+	Discr3threshold : 50
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile22_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 170
+	Discr3threshold : 50
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile23_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 210
+	Discr3threshold : 50
+	TriggerThresMult : 2
+}
+
+BNBHeavySterile24_FEMBeamTriggerAlgo:{
+	@table::BNB_FEMBeamTriggerAlgo_Base
+	TriggerThresPHMAX : 250
+	Discr3threshold : 50
+	TriggerThresMult : 2
+}
