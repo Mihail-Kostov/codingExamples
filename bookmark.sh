@@ -1,1 +1,1 @@
-/Users/sdporzio/InFlightSterileNeutrinos/FluxFiles
+/Users/sdporzio/FNAL/APP/SterileNeutrinos/TriggerEfficiency_Timing/TriggerEfficiency
