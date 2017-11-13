@@ -57,7 +57,7 @@ def main():
     parser.add_argument('-x','--xLabel',required=False,help='Label for the x axis',type=str)
     args = parser.parse_args()
     values,errors,labels = ReadCsvData(args.input)
-    ForestPlot(values,errors,labels)
+    ForestPlot(values,errors,labels,args.xLabel)
 
 if __name__ == '__main__':
     main()
